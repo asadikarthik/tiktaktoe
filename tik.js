@@ -46,6 +46,8 @@ boxes.forEach((box) =>{
 
 const resetGame =() => {
     isO=true;
+    c=0;
+    game=false;
     enableBoxes();
     
 }
