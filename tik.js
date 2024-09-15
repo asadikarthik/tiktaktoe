@@ -5,6 +5,8 @@ let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
 let isO =true;
+let c=0;
+let game=false;
 
 const winP=[
     [0,1,2],
@@ -17,8 +19,6 @@ const winP=[
     [2,4,6]
 ];
 
-let c=0;
-let game=false;
 boxes.forEach((box) =>{
     box.addEventListener("click", () => {
         //console.log("box is clicked");
@@ -32,13 +32,12 @@ boxes.forEach((box) =>{
             isO = true;
         }
         c++;
-        box.disabled="true";
+        box.disabled=true;
         checkWinner();
         if(c===9 && game===false)
         {
             msg.innerText = "It's a tie!";
             msgContainer.classList.remove("hide");
-            
         }
         
     });
@@ -49,7 +48,6 @@ const resetGame =() => {
     c=0;
     game=false;
     enableBoxes();
-    
 }
 const disableBoxes =()=>{
     for (let box of boxes)
@@ -78,7 +76,7 @@ const checkWinner=() =>{
         let p1=boxes[i[0]].innerText;
         let p2=boxes[i[1]].innerText;
         let p3=boxes[i[2]].innerText;
-        if (p1 !== "" && p2 !== "" && p3 !== "")
+        if(p1!=="" && p2!=="" && p3!=="")
         {
             if(p1===p2 && p2===p3)
             {
@@ -90,5 +88,5 @@ const checkWinner=() =>{
     }
 }
 
-newGameBtn.addEventListener("click",enableBoxes);
+newGameBtn.addEventListener("click",resetGame);
 resetBtn.addEventListener("click",resetGame);
