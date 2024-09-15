@@ -78,7 +78,7 @@ const checkWinner=() =>{
         let p1=boxes[i[0]].innerText;
         let p2=boxes[i[1]].innerText;
         let p3=boxes[i[2]].innerText;
-        if(p1!="" && p1!="" && p3!="")
+        if (p1 !== "" && p2 !== "" && p3 !== "")
         {
             if(p1===p2 && p2===p3)
             {
